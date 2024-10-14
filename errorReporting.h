@@ -49,7 +49,18 @@ void set_error(bool ok = true, int16_t code = 0, const char* msg = "", messageLe
 #endif
 }
 
-
+// Same as set error, but always ignores priority
+void hard_set_error(bool ok = true, int16_t code = 0, const char* msg = "", messageLevel logLevel = INFO, const char* context = ""){
+    JSON["level"].set(debugLevel[logLevel]);
+    JSON["context"].set(context);
+    JSON["payload"]["status"]["ok"].set(ok);
+    JSON["payload"]["status"]["code"].set(code);
+    JSON["payload"]["status"]["msg"].set(msg);
+    if (logLevel == FATAL) {
+      FATAL_ERROR = true;       //
+      FATAL_ERROR_CODE = code;  // log the error that caused the FATA_ERROR as can be cleared later if required
+    }
+}
 
 
 void clear_error(int16_t error_code) {
