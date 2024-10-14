@@ -18,11 +18,15 @@ template_message:
 
 Use:
 
-```set_error(false, -error_code, "error-message", MESSAGE_LEVEL, "context()") ``` <br>
+```
+set_error(false, -error_code, "error-message", MESSAGE_LEVEL, "context()") 
 
-```clear_error(-error_code, clear_fatal)`   // clear_fatal is used if FATAL error level is sent to manage a global flag that could be used to lock out equipment if specific FATAL errors are set``` <br>
+clear_error(-error_code, clear_fatal)   // clear_fatal is used if FATAL error level is sent to manage a global flag that could be used to lock out equipment if specific FATAL errors are set
 
-```clear_warnings()     // Called periodically and clears WARNING level messages after a given time delay``` <br>
+clear_warnings()     // Called periodically and clears WARNING level messages after a given time delay
+
+```
+<br>
 
 Issues:
 - New error of any kind overrights previous error
