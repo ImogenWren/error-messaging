@@ -19,9 +19,9 @@ template_message:
 Use:
 
 ```
-set_error(false, -error_code, "error-message", MESSAGE_LEVEL, "context()") 
+set_error(false, -error_code, "error-message", MESSAGE_LEVEL, "context()")  // Generate Error
 
-clear_error(-error_code, clear_fatal)   // clear_fatal is used if FATAL error level is sent to manage a global flag that could be used to lock out equipment if specific FATAL errors are set
+clear_error(-error_code)   // Clear Error with code
 
 clear_warnings()     // Called periodically and clears WARNING level messages after a given time delay
 
